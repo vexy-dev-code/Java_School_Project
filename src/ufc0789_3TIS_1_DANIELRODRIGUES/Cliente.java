@@ -12,7 +12,12 @@ public class Cliente {
     }
 
     double obterValorTotal() {
-        return listaCompras.size();
+
+        double total = 0;
+        for (Compra c : listaCompras) {
+            total += c.obterValorTotal();
+        }
+        return total;
     }
 
 }

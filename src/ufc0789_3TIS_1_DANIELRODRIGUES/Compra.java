@@ -6,13 +6,20 @@ public class Compra {
 
     ArrayList<Item> listaItens = new ArrayList<>();
 
-    /*void adicionarItem(String produto,double preco, int quantidade) {
-        Produto newProduct = new Produto(produto,preco);
-        Item newItem = new Item(newProduct,quantidade);
-    }*/
-
     double obterValorTotal() {
-        return listaItens.size();
+
+        double total = 0;
+
+        for (Item it : listaItens) {
+            total += it.quantidade*it.produto.preco;
+        }
+
+        return total;
+    }
+
+    void adicionarItem(String nome, double preco, int qtd) {
+        Produto prod = new Produto(nome,preco);
+        this.listaItens.add(new Item(prod,qtd));
     }
 
 }
